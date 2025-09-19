@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./global.css";
 
 export const metadata: Metadata = {
-  title: "Ship Routing App",
+  title: "ONIST - Ship Routing App",
   description: "A Next.js app for ship routing",
   icons: {
-    icon: '/image.png',
+    icon: '../public/image.png',
   },
 };
 
