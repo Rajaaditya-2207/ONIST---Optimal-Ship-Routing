@@ -1,0 +1,7 @@
+[
+  {"name": "Port of Los Angeles", "country": "USA", "lat": 33.7361, "lon": -118.2626, "unlocode": "USLAX"},
+  {"name": "Port of Singapore", "country": "Singapore", "lat": 1.2644, "lon": 103.8225, "unlocode": "SGSIN"},
+  {"name": "Port of Rotterdam", "country": "Netherlands", "lat": 51.9486, "lon": 4.1386, "unlocode": "NLRTM"},
+  {"name": "Port of Shanghai", "country": "China", "lat": 31.2304, "lon": 121.4737, "unlocode": "CNSHA"},
+  {"name": "Port of Dubai", "country": "UAE", "lat": 25.2711, "lon": 55.3075, "unlocode": "AEPDJ"}
+]

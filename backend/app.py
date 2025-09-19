@@ -17,6 +17,7 @@ from shapely.prepared import prep
 
 from simulator.marinetime_data import simulate_maritime_data
 from explainer.explain import get_path_explanation
+from ports import find_nearest_port
 
 # --- Setup and Configuration ---
 
@@ -221,6 +222,32 @@ def optimize_route():
         app.logger.error(f"Error in optimize_route: {str(e)}")
         import traceback
         traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/nearest_port', methods=['POST'])
+def nearest_port():
+    data = request.json
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    lat = data.get('lat')
+    lon = data.get('lon')
+    if lat is None or lon is None:
+        return jsonify({"error": "Provide 'lat' and 'lon' in the request body"}), 400
+
+    try:
+        port = find_nearest_port(float(lat), float(lon))
+        # Format response as requested
+        response = {
+            "port_name": port['name'],
+            "country": port.get('country'),
+            "unlocode": port.get('unlocode'),
+            "location": {"lat": port['lat'], "lon": port['lon']},
+            "distance_km": port['distance_km']
+        }
+        return jsonify(response)
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
