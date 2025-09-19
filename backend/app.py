@@ -16,7 +16,7 @@ from shapely.geometry import Point, Polygon
 from shapely.prepared import prep
 
 from simulator.marinetime_data import simulate_maritime_data
-from gemma.explain import get_path_explanation
+from explainer.explain import get_path_explanation
 
 # --- Setup and Configuration ---
 
@@ -209,7 +209,7 @@ def optimize_route():
         smoothed_path = smooth_path(final_path_points)
         
         total_distance = sum(haversine(p1[0], p1[1], p2[0], p2[1]) for p1, p2 in zip(smoothed_path, smoothed_path[1:]))
-        route_data = {"distance": total_distance, "num_steps": len(smoothed_path)}
+        route_data = {"distance": total_distance, "num_steps": len(smoothed_path), "start_port": start_port, "end_port": end_port}
         maritime_data_summary = {k: v for k, v in maritime_data.items() if isinstance(v, (int, float, bool))}
 
         print("Generating explanation...")
