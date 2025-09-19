@@ -1,122 +1,120 @@
-Ship Routing Optimizer
-Project Overview
-A web application that optimizes ship routes within the Indian Ocean region, considering factors such as fuel efficiency, travel time, and safety. The system integrates environmental data to provide efficient and secure routes for various types of ships.
+# 🌊 ONIST - Optimal Ship Routing
 
-Key Features
-Interactive map interface centered on the Indian Ocean region
+**ONIST** is a full-stack web application designed to find the most efficient maritime routes.  
+By considering environmental factors like wind, waves, and currents, it helps in planning **safer** and **more fuel-efficient** journeys for various types of ships.
 
-Route optimization algorithm considering environmental factors
+---
 
-Integration of environmental data (significant wave height, wind speed, sea surface temperature, surface currents, salinity)
+## ✨ Key Features
 
-Support for different ship types (Passenger ship, Cargo ship, Tanker)
+- **Interactive Map Interface** – A user-friendly map to select start and end points for the route.  
+- **Dynamic Route Optimization** – Utilizes the **A\*** algorithm to calculate the optimal path based on real-time environmental data.  
+- **Support for Multiple Ship Types** – Tailored routing for passenger ships, cargo ships, and tankers.  
+- **Route Visualization** – Animates the ship’s journey along the calculated path.  
+- **Detailed Explanations** – Provides reasoning for suggested routes, highlighting influencing environmental factors.  
+- **Nearest Port Finder** – Utility to find the closest port to a given geographical coordinate.  
 
-Animated route visualization
+---
 
-Location search functionality
+## 🛠️ Technologies Used
 
-Weather overlay option
+### Frontend
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Leaflet** (map rendering)
+- **Tailwind CSS**
+- **Framer Motion**
 
-Technologies Used
-Frontend
-Next.js, React, TypeScript
+### Backend
+- **Flask (Python)**
+- **NumPy**
+- **SciPy**
+- **GeoPandas**
+- **Numba**
 
-Map Integration: Leaflet, React-Leaflet
+---
 
-3D Rendering: Three.js
+## 🚀 Getting Started
 
-Styling: Tailwind CSS
+Follow these steps to set up ONIST locally:
 
-Animation: Framer Motion
+### ✅ Prerequisites
+- [Node.js](https://nodejs.org/) & npm  
+- [Python 3.x](https://www.python.org/) & pip  
 
-Icons: Lucide React
+### ⚡ Installation
 
-Date Handling: date-fns
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rajaaditya-2207/onist---optimal-ship-routing.git
+   cd onist---optimal-ship-routing
+Install frontend dependencies
 
-Backend
-Python
-
-Flask
-
-NumPy, SciPy
-
-netCDF4 for environmental data processing
-
-Numba for performance optimization
-
-Project Structure
-Frontend
-components/:
-
-LeafletMap.tsx: Main map component with route visualization
-
-RouteForm.tsx: Form for inputting route parameters
-
-ShipRoutingApp.tsx: Main application component
-
-Sidebar.tsx: Collapsible sidebar for route input
-
-Backend
-app.py: Flask application with route optimization logic
-
-Setup and Installation
-Clone the repository:
-
-git clone [https://github.com/your-username/ship-routing-app.git](https://github.com/your-username/ship-routing-app.git)
-cd ship-routing-app
-
-Install frontend dependencies:
-
+bash
+Copy code
 npm install
+Install backend dependencies
 
-Install backend dependencies:
+bash
+Copy code
+pip install -r backend/requirements.txt
+Run the frontend development server
 
-pip install flask flask-cors netCDF4 numpy scipy numba
-
-Run the frontend development server:
-
+bash
+Copy code
 npm run dev
+Run the backend server
 
-Run the backend server:
-
+bash
+Copy code
 python backend/app.py
+Open the application
+Navigate to 👉 http://localhost:3000 in your browser.
 
-Open http://localhost:3000 in your browser.
+📖 Usage
+Select Ship Type – Passenger ship, cargo ship, or tanker.
 
-Usage
-Open the sidebar and select the ship type.
+Choose Start & End Ports – Click directly on the map to set departure and arrival points.
 
-Choose start and end ports by clicking on the map.
+Set Departure Date – Specify your journey start date.
 
-Set the departure date.
+Calculate Route – Click “Calculate Optimal Route” to view the most efficient path.
 
-Click "Calculate Optimal Route" to generate the route.
+Visualize the Journey – Use “Start Animation” to simulate the voyage.
 
-Use the "Start Animation" button to visualize the ship's journey.
+🧠 Route Optimization
+At its core, ONIST uses the A* pathfinding algorithm implemented in Python.
 
-Toggle the weather overlay for additional environmental information.
+🔎 How it Works:
+Grid Creation – The world map is divided into a grid of nodes.
 
-Route Optimization
-The backend uses the Dijkstra algorithm to calculate the optimal route, considering:
+Cost Calculation – Each edge cost is influenced by:
 
-Ship type and speed
+Distance – Geographical distance between nodes.
 
-Significant wave height
+Weather – Significant wave height (SWH) and wind speed (WS) increase traversal cost.
 
-Wind speed
+Ship Type – Ship speed and handling characteristics.
 
-Environmental data is processed from netCDF files and interpolated to a common grid for route calculations.
+Pathfinding – A* searches for the path with the lowest combined cost (distance + heuristic).
 
-Future Improvements
-Implement more sophisticated routing algorithms
+Land Avoidance – Landmasses are treated as impassable barriers.
 
-Add support for more ship types and environmental factors
+Path Smoothing – The resulting path is adjusted for realistic and practical navigation.
 
-Enhance the user interface for better data visualization
+🔮 Future Improvements
+⏩ More advanced routing algorithms.
 
-Implement real-time data updates
+🚢 Support for more ship types and environmental factors.
 
-Develop a mobile app version
+📊 Enhanced data visualization in the UI.
 
-Contact
-For questions or collaborations, please open an issue on our GitHub repository.
+🌐 Real-time environmental data updates.
+
+📱 Mobile app version for on-the-go planning.
+
+📞 Contact
+For questions, feedback, or collaborations, please open an issue on the GitHub repository.
+We’d love to hear from you!
+
