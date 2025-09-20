@@ -6,7 +6,7 @@ from typing import Dict, Tuple, Any, List, Optional
 
 try:
     # KD-tree for fast nearest neighbor (optional dependency: scipy)
-    from scipy.spatial import cKDTree
+    from scipy.spatial import ckdtree
 except Exception:
     cKDTree = None
 
@@ -33,7 +33,7 @@ class PortsIndex:
     """
     def __init__(self):
         self.ports: List[Dict[str, Any]] = []
-        self._tree: Optional[cKDTree] = None
+        self._tree: Optional[ckdtree] = None
         self._coords = None
         self._load()
 

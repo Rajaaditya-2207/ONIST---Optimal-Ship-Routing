@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "ONIST - Ship Routing App",
   description: "A Next.js app for ship routing",
   icons: {
-    icon: '../public/image.png',
+    icon: '/image.png',
   },
 };
 

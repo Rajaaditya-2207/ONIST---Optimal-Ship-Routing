@@ -41,7 +41,7 @@ def get_path_explanation(route_data, maritime_data):
         return "API key not configured. Cannot generate explanation."
 
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-2.5-pro')
 
         prompt = f"""
         Analyze the following ship routing data and explain why the optimal path changes.
